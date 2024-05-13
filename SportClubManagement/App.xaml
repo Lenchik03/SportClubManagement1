@@ -1,0 +1,16 @@
+﻿<Application x:Class="SportClubManagement.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:SportClubManagement"
+             StartupUri="mvvm\view\MainWindow.xaml">
+    
+    <Application.Resources>
+        <ResourceDictionary
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+            <!-- Resource dictionary entries should be defined here. -->
+
+            <Path x:Key="IconTriangle" x:Shared="False" Stretch="Uniform" Data="M50.25,133.5 L49.75,158.25 76,147.25 z" Fill="Black" Stroke="Black"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
