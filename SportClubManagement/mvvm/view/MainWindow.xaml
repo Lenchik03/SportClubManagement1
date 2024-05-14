@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SportClubManagement"
         xmlns:vm="clr-namespace:SportClubManagement.mvvm.viewmodel"
         DataContext="{DynamicResource mainVM}"
-        Height="450" Width="800">
+        Height="500" Width="800">
 
     <Window.Resources>
         <vm:MainVM x:Key="mainVM"/>
@@ -23,14 +23,14 @@
             <!--<MenuItem Header="Поиск" Command="{Binding Search}"/>-->
 
             <Image x:Name="Logo" Width="60" Height="60" Margin="5" Source="/mvvm/view/logo.png"/>
-            <MenuItem Header="Главная" Visibility="{Binding CurrentPage, Converter={StaticResource pageConv}, ConverterParameter=RegistrationPage}" Command="{Binding MainPage}"/>
-            <MenuItem Header="Главная" Visibility="{Binding CurrentPage, Converter={StaticResource pageConv}, ConverterParameter=RegistrationPage1}" Command="{Binding MainPage}"/>
+            <MenuItem Header="Главная" Visibility="{Binding CurrentPage, Converter={StaticResource pageConv}, ConverterParameter=ManagerPage}" Command="{Binding MainPage}"/>
+            <MenuItem Header="Главная" Visibility="{Binding CurrentPage, Converter={StaticResource pageConv}, ConverterParameter=EditClientPage}" Command="{Binding MainPage}"/>
+            <MenuItem Header="Главная" Visibility="{Binding CurrentPage, Converter={StaticResource pageConv}, ConverterParameter=EditCoachPage}" Command="{Binding MainPage}"/>
         </Menu>
 
 
         <Menu HorizontalAlignment="Right">
-                    <MenuItem Header="Выйти" Visibility="{Binding CurrentPage, Converter={StaticResource signOutConv}, ConverterParameter=RegistrationPage1}" Command="{Binding SignOut}" Margin="5,20,5,5"/>
-            <MenuItem Header="Выйти" Visibility="{Binding CurrentPage, Converter={StaticResource signOutConv}, ConverterParameter=RegistrationPage}" Command="{Binding SignOut}" Margin="5,20,5,5"/>
+            <MenuItem Header="Выйти" Visibility="{Binding CurrentPage, Converter={StaticResource signOutConv}, ConverterParameter=ManagerPage}" Command="{Binding SignOut}" Margin="5,25,5,5"/>
         </Menu>
         <Frame NavigationUIVisibility="Hidden"
            Content="{Binding CurrentPage}"

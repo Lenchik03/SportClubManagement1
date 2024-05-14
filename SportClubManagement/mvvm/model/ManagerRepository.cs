@@ -33,7 +33,7 @@ namespace SportClubManagement.mvvm.model
             var connect = MySqlDB.Instance.GetConnection();
             if (connect == null)
                 return result;
-            string sql = "SELECT managerID as id, FIO, email, password, phone_number FROM managers;";
+            string sql = "SELECT managerID as id, FIO, phone_number, email, password FROM managers;";
             using (var mc = new MySqlCommand(sql, connect))
             using (var reader = mc.ExecuteReader())
             {
@@ -49,9 +49,9 @@ namespace SportClubManagement.mvvm.model
                         result.Add(manager);
                         manager.ID = id;
                         manager.FIO = reader.GetString("FIO");
+                        manager.PhoneNumber = reader.GetString("phone_number");
                         manager.Email = reader.GetString("email");
                         manager.Password = reader.GetString("password");
-                        manager.PhoneNumber = reader.GetString("phone_number");
 
                     }
                 }
@@ -71,13 +71,13 @@ namespace SportClubManagement.mvvm.model
 
                 int id = MySqlDB.Instance.GetAutoID("managers");
                 manager.ID = id;
-                string sql = "INSERT INTO users VALUES (0, @FIO, @email, @password, @phone_number)";
+                string sql = "INSERT INTO managers VALUES (0, @FIO, @phone_number, @email, @password)";
                 using (var mc = new MySqlCommand(sql, connect))
                 {
                     mc.Parameters.Add(new MySqlParameter("FIO", manager.FIO));
+                    mc.Parameters.Add(new MySqlParameter("phone_number", manager.PhoneNumber));
                     mc.Parameters.Add(new MySqlParameter("email", manager.Email));
                     mc.Parameters.Add(new MySqlParameter("password", Md5Hash.HashPassword(manager.Password)));
-                    mc.Parameters.Add(new MySqlParameter("phone_number", manager.PhoneNumber));
                     mc.ExecuteNonQuery();
                 }
             }
@@ -123,7 +123,7 @@ namespace SportClubManagement.mvvm.model
                 if (connect == null)
                     return manager;
 
-                string sql = "SELECT managerID as id, FIO, email, password, phone_number FROM managers WHERE email = '" + email + "' AND password = '" + Md5Hash.HashPassword(password) + "';";
+                string sql = "SELECT managerID as id, FIO, email, phone_number FROM managers WHERE email = '" + email + "' AND password = '" + Md5Hash.HashPassword(password) + "';";
 
                 using (var mc = new MySqlCommand(sql, connect))
                 using (var reader = mc.ExecuteReader())
@@ -132,8 +132,10 @@ namespace SportClubManagement.mvvm.model
                     {
                         manager.ID = reader.GetInt32("id");
                         manager.FIO = reader.GetString("FIO");
-                        manager.Email = reader.GetString("email");
                         manager.PhoneNumber = reader.GetString("phone_number");
+                        manager.Email = reader.GetString("email");
+                        
+                        
                     }
                 }
 

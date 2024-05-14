@@ -16,15 +16,13 @@ namespace SportClubManagement.mvvm.viewmodel
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value == null)
-                return Visibility.Visible;
+                return Visibility.Collapsed;
 
             string p = parameter.ToString();
-            if (p == "RegistrationPage" && value is RegistrationPage)
-                return Visibility.Collapsed;
-            if (p == "RegistrationPage1" && value is RegistrationPage1)
-                return Visibility.Collapsed;
+            if (p == "ManagerPage" && value is ManagerPage)
+                return Visibility.Visible;
 
-            return Visibility.Visible;
+            return Visibility.Collapsed;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

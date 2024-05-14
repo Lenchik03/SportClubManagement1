@@ -14,7 +14,7 @@ namespace SportClubManagement.mvvm.viewmodel
         public class ManagerPageVM : BaseVM
         {
 
-            private MainVM mainVM;
+        private MainVM mainVM;
         private string searchText = "";
         private ObservableCollection<Client> clients;
         private ObservableCollection<Coach> coaches;

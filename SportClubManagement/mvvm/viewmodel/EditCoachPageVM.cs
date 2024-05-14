@@ -57,6 +57,7 @@ namespace SportClubManagement.mvvm.viewmodel
 
             //команда на добавление в базу или обновление тренера в базе
             Save = new VmCommand(() => {
+                Coach.TypeActivitiesID = SelectedTypeActivities?.ID ?? 1;
                 if (Coach.ID == 0)
                 {
 

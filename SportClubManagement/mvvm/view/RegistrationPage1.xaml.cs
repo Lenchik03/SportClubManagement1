@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SportClubManagement.mvvm.viewmodel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,12 @@ namespace SportClubManagement.mvvm.view
     /// </summary>
     public partial class RegistrationPage1 : Page
     {
-        public RegistrationPage1()
+        public RegistrationPage1(MainVM mainVM)
         {
             InitializeComponent();
+            var vm = ((RegistrationPage1VM)DataContext);
+            vm.SetMainVM(mainVM);
+            vm.SetPasswordBox(passwrdBox);
         }
     }
 }

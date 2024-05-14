@@ -14,7 +14,7 @@ namespace SportClubManagement.mvvm.viewmodel
 {
     public class RegistrationPageVM : BaseVM
     {
-        MainVM mainVM;
+        private MainVM mainVM;
         public VmCommand Open { get; }
         public VmCommand Registr { get; }
 
@@ -31,15 +31,15 @@ namespace SportClubManagement.mvvm.viewmodel
 
                 else
                 {
-                    ManagerPage managerPage = new ManagerPage(mainVM);
-                    mainVM.CurrentPage = managerPage;
+                    ManagerPage managerPage = new ManagerPage(MainVM.Instance);
+                    MainVM.Instance.CurrentPage = managerPage;
                 }
             });
 
             Registr = new VmCommand(() =>
             {
-                RegistrationPage1 registrationPage1 = new RegistrationPage1();
-                mainVM.CurrentPage = registrationPage1;
+
+                MainVM.Instance.CurrentPage = new RegistrationPage1(MainVM.Instance);
             });
         }
 
