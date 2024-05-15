@@ -12,5 +12,6 @@ namespace SportClubManagement.mvvm.model
         public string FIO { get; set; } = string.Empty;
         public int TypeActivitiesID { get; set; }
         public string PhoneNumber { get; set; } = string.Empty;
+        public string TypeActivities { get; set; } = string.Empty;
     }
 }

@@ -123,7 +123,7 @@ namespace SportClubManagement.mvvm.model
                 if (connect == null)
                     return manager;
 
-                string sql = "SELECT managerID as id, FIO, email, phone_number FROM managers WHERE email = '" + email + "' AND password = '" + Md5Hash.HashPassword(password) + "';";
+                string sql = "SELECT mangerID as id, FIO, email, phone_number FROM managers WHERE email = '" + email + "' AND password = '" + Md5Hash.HashPassword(password) + "';";
 
                 using (var mc = new MySqlCommand(sql, connect))
                 using (var reader = mc.ExecuteReader())

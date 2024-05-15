@@ -28,7 +28,7 @@ namespace SportClubManagement.mvvm.model
             var connect = MySqlDB.Instance.GetConnection();
             if (connect == null)
                 return result;
-            string sql = "SELECT coachID as id, FIO, typeActivitiesID, phone_number from coaches;";
+            string sql = "SELECT c.coachID as id, c.FIO, c.typeActivitiesID, c.phone_number, t.title as typeActivities from coaches c, typeActivities t where c.typeActivitiesID = t.typeActivitiesID ORDER BY id;";
             using (var mc = new MySqlCommand(sql, connect))
             using (var reader = mc.ExecuteReader())
             {
@@ -43,6 +43,7 @@ namespace SportClubManagement.mvvm.model
                     coach.FIO = reader.GetString("FIO");
                     coach.TypeActivitiesID = reader.GetInt32("typeActivitiesID");
                     coach.PhoneNumber = reader.GetString("phone_number");
+                    coach.TypeActivities = reader.GetString("typeActivities");
                     result.Add(coach);
                 }
             }
