@@ -38,7 +38,7 @@ namespace SportClubManagement.mvvm.viewmodel
 
             Registr = new VmCommand(() =>
             {
-                RegistrationPage1 registrationPage1 = new RegistrationPage1();
+                RegistrationPage1 registrationPage1 = new RegistrationPage1(mainVM);
                 mainVM.CurrentPage = registrationPage1;
             });
         }

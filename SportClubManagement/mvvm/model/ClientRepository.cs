@@ -97,7 +97,7 @@ namespace SportClubManagement.mvvm.model
                     return;
 
 
-                string sql = "UPDATE clients SET FIO = @FIO, membershipID = @membershipID, typeActivitiesID = @typeActivitiesID, coachID = @coachID, classes_days = @classes_days, phone_number = @phone_number, email=@email WHERE clientID = '" + client.ID + "';";
+                string sql = "UPDATE clients SET FIO = @FIO, membershipID = @membershipID, typeActivitiesID = @typeActivitiesID, coachID = @coachID, classes_days = @classes_days, phone_number = @phone_number, email = @email WHERE clientID = '" + client.ID + "';";
                 using (var mc = new MySqlCommand(sql, connect))
                 {
                     mc.Parameters.Add(new MySqlParameter("FIO", client.FIO));

@@ -105,7 +105,7 @@ namespace SportClubManagement.mvvm.viewmodel
                 {
                     if (Client.MembershipID == 1)
                         Client.ClassesDays = 1;
-                    else if(Client.MembershipID == 2)
+                    else if (Client.MembershipID == 2)
                         Client.ClassesDays = 12;
                     else if (Client.MembershipID == 2)
                         Client.ClassesDays = 72;

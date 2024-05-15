@@ -11,6 +11,7 @@ namespace SportClubManagement.mvvm.viewmodel
 {
     public class RegistrationPage1VM: BaseVM
     {
+        MainVM mainVM;
         public VmCommand Save { get; set; }
         private Manager selectedManager = new();
         public Manager SelectedManager
@@ -31,5 +32,9 @@ namespace SportClubManagement.mvvm.viewmodel
 
             });
          }
+        internal void SetMainVM(MainVM mainVM)
+        {
+            this.mainVM = mainVM;
+        }
     }
 }
