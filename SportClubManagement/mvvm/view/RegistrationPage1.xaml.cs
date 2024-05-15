@@ -26,6 +26,7 @@ namespace SportClubManagement.mvvm.view
             InitializeComponent();
             var vm = ((RegistrationPage1VM)DataContext);
             vm.SetMainVM(mainVM);
+            vm.SetPasswordBox(passwrdBox);
         }
     }
 }

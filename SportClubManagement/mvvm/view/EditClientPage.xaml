@@ -15,10 +15,22 @@
 
     </Page.Resources>
     <Grid>
-        <StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1">
             <StackPanel DataContext="{Binding Client}">
                 <Label Content="ФИО"/>
                 <TextBox Text="{Binding FIO}"/>
+                <Label Content="Дни занятий"/>
+                <TextBox Text="{Binding ClassesDays}"/>
+                <!--<Slider Minimum="0" Maximum="144" Value="{Binding ClassesDays}"/>-->
+                <Label Content="Номер телефона"/>
+                <TextBox Text="{Binding PhoneNumber}"/>
+                <Label Content="Эл.почта"/>
+                <TextBox Text="{Binding Email}"/>
             </StackPanel>
             <Label Content="Абонемент"/>
             <ComboBox ItemsSource="{Binding AllMemberships}" SelectedItem="{Binding SelectedMembership}" DisplayMemberPath="Title"/>
@@ -27,14 +39,7 @@
             <Label Content="Тренер"/>
             <ComboBox ItemsSource="{Binding AllCoaches}" SelectedItem="{Binding SelectedCoach}" DisplayMemberPath="FIO"/>
 
-            <Label Content="Дни занятий"/>
-            <TextBox Text="{Binding ClassesDays}"/>
-            <!--<Slider Minimum="0" Maximum="144" Value="{Binding ClassesDays}"/>-->
-            <Label Content="Номер телефона"/>
-            <TextBox Text="{Binding PhoneNumber}"/>
-            <Label Content="Эл.почта"/>
-            <TextBox Text="{Binding Email}"/>
-            <Button Content="Сохранить" Command="{Binding Save}" />
+            <Button Content="Сохранить" Command="{Binding Save}" Width="70" Margin="5"/>
         </StackPanel>
         
     </Grid>

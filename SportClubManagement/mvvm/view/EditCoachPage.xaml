@@ -21,14 +21,16 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Width="400">
             <StackPanel DataContext="{Binding Coach}">
+                
                 <Label Content="ФИО"/>
                 <TextBox Text="{Binding FIO}"/>
+                <Label Content="Номер телефона"/>
+                <TextBox Text="{Binding PhoneNumber}"/>
             </StackPanel>
             <Label Content="Вид абонемента"/>
             <ComboBox ItemsSource="{Binding AllTypeActivities}" SelectedItem="{Binding SelectedTypeActivities}" DisplayMemberPath="Title"/>
             
-            <Label Content="Номер телефона"/>
-            <TextBox Text="{Binding PhoneNumber}"/>
+            
 
             <StackPanel>
                 <Button Content="Сохранить" Command="{Binding Save}" Width="150" Margin="10"/>

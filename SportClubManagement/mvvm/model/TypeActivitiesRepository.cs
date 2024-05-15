@@ -31,7 +31,7 @@ namespace SportClubManagement.mvvm.model
             var connect = MySqlDB.Instance.GetConnection();
             if (connect == null)
                 return result;
-            string sql = "SELECT typeActivitiesID as id, title from typeActivities;";
+            string sql = "SELECT typeActivitiesID as id, title from typeactivities;";
             using (var mc = new MySqlCommand(sql, connect))
             using (var reader = mc.ExecuteReader())
             {

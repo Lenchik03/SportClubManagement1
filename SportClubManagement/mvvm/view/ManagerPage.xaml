@@ -13,34 +13,39 @@
         <vm:ManagerPageVM x:Key="managerVM"/>
     </Page.Resources>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
         <TabControl>
             <TabItem Header="Клиенты">
-                
-                <StackPanel Orientation="Horizontal">
-                    <StackPanel Margin="3">
-                        <TextBlock Text="Поиск по наименованию или описанию" />
-                        <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"/>
-                    </StackPanel>
-                    <StackPanel Margin="3">
-                        <TextBlock Text="Фильтрация по тренеру"/>
-                        <ComboBox DisplayMemberPath="FIO"
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="0">
+                        <StackPanel Margin="3">
+                            <TextBlock Text="Поиск по наименованию или описанию" />
+                            <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                        <StackPanel Margin="3">
+                            <TextBlock Text="Фильтрация по тренеру"/>
+                            <ComboBox DisplayMemberPath="FIO"
             SelectedItem="{Binding SelectedCoach}" 
             ItemsSource="{Binding AllCoaches}"/>
-                    </StackPanel>
-                    <StackPanel Margin="3">
-                        <TextBlock Text="Фильтрация по абонементу"/>
-                        <ComboBox DisplayMemberPath="Title"
+                        </StackPanel>
+                        <StackPanel Margin="3">
+                            <TextBlock Text="Фильтрация по абонементу"/>
+                            <ComboBox DisplayMemberPath="Title"
 SelectedItem="{Binding SelectedMembership}" 
 ItemsSource="{Binding AllMemberships}"/>
-                    </StackPanel>
-                    <StackPanel Margin="3">
-                        <TextBlock Text="Фильтрация по виду абонемента"/>
-                        <ComboBox DisplayMemberPath="Title"
+                        </StackPanel>
+                        <StackPanel Margin="3">
+                            <TextBlock Text="Фильтрация по виду абонемента"/>
+                            <ComboBox DisplayMemberPath="Title"
 SelectedItem="{Binding SelectedTypeActivities}" 
 ItemsSource="{Binding AllTypeActivities}"/>
+                        </StackPanel>
                     </StackPanel>
-                    <StackPanel>
-                        <ListView ItemsSource="{Binding Clients}" SelectedItem="{Binding SelectedClient}">
+                    <StackPanel Grid.Row="2">
+                <ListView ItemsSource="{Binding Clients}" SelectedItem="{Binding SelectedClient}">
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="ФИО" DisplayMemberBinding="{Binding FIO}" />
@@ -53,14 +58,16 @@ ItemsSource="{Binding AllTypeActivities}"/>
                                 </GridView>
                             </ListView.View>
                         </ListView>
-                        <StackPanel Orientation="Horizontal">
-                            <Button Content="Добавить клиента" Command="{Binding Create}"/>
-                            <Button Content="Редактировать клиента" Command="{Binding Edit}"/>
-                            <Button Content="Удалить клиента" Command="{Binding Delete}"/>
+                        <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center">
+                            <Button Content="Добавить клиента" Command="{Binding Create}" Margin="5"/>
+                            <Button Content="Редактировать клиента" Command="{Binding Edit}" Margin="5"/>
+                            <Button Content="Удалить клиента" Command="{Binding Delete}" Margin="5"/>
                         </StackPanel>
                     </StackPanel>
+                
+                    
+                    
                 </StackPanel>
-
             </TabItem>
             <TabItem Header="Тренеры">
                 <StackPanel>
@@ -78,13 +85,14 @@ ItemsSource="{Binding AllTypeActivities}"/>
             </Style>
         </ListView.ItemContainerStyle>-->
                     </ListView>
-                    <StackPanel Orientation="Horizontal">
-                        <Button Content="Добавить тренера" Command="{Binding CreateCoach}"/>
-                        <Button Content="Редактировать тренера" Command="{Binding EditCoach}"/>
-                        <Button Content="Удалить тренера" Command="{Binding RemoveCoach}"/>
+                    <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center">
+                        <Button Content="Добавить тренера" Command="{Binding CreateCoach}" Margin="5"/>
+                        <Button Content="Редактировать тренера" Command="{Binding EditCoach}" Margin="5"/>
+                        <Button Content="Удалить тренера" Command="{Binding RemoveCoach}" Margin="5"/>
                     </StackPanel>
                 </StackPanel>
             </TabItem>
         </TabControl>
+
     </Grid>
 </Page>
